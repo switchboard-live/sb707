@@ -2,8 +2,8 @@
   <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
     <div class="flex items-center gap-4">
       <span class="text-[#EAF8E2] font-semibold">Powered by</span>
-      <a href="https://switchboard.live" target="_blank" class="text-[#66CC33] hover:text-white font-bold text-lg transition">
-        Switchboard Live
+      <a href="https://switchboard.live" target="_blank" class="hover:opacity-80 transition">
+        <img src="/logo.png" alt="Switchboard Live" class="h-8 w-auto">
       </a>
     </div>
     
