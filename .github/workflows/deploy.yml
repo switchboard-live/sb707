@@ -27,4 +27,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy .svelte-kit/cloudflare --project-name=sb707 --branch=main
+          command: pages project create sb707 --production-branch=main 2>/dev/null || true && pages deploy .svelte-kit/cloudflare --project-name=sb707 --branch=main
