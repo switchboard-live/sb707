@@ -1,34 +1,41 @@
-<section class="py-20 px-6 bg-[#EAF8E2]">
-  <div class="max-w-3xl mx-auto">
-    <h2 class="text-3xl font-bold text-[#141E22] mb-12 text-center">Frequently Asked Questions</h2>
+<script>
+  const pitfalls = [
+    {
+      title: "Assuming Zoom/Webex is sufficient",
+      description: "These platforms lack integrated compliance features like captioning and phone backup."
+    },
+    {
+      title: "Forgetting the phone backup requirement",
+      description: "Even perfect video streaming does not meet SB 707 without a dial-in option."
+    },
+    {
+      title: "Delaying service disruption policy adoption",
+      description: "Without a written, adopted policy, compliance fails even if technology works."
+    },
+    {
+      title: "Treating SB 707 as an IT project only",
+      description: "Compliance requires cross-departmental leadership—clerks, attorneys, IT, and communications must all be involved."
+    }
+  ];
+</script>
+
+<section id="pitfalls" class="py-20 px-6 bg-[#EAF8E2]">
+  <div class="max-w-4xl mx-auto">
+    <span class="text-[#66CC33] font-semibold text-sm tracking-wide uppercase">Section Four</span>
+    <h2 class="text-3xl md:text-4xl font-bold text-[#141E22] mt-2 mb-12">Common Pitfalls to Avoid</h2>
     
-    <div class="space-y-4">
-      {#each faqs as faq, i}
-        <div class="bg-white rounded-lg shadow-sm border border-[#114B5F]/10">
-          <button 
-            class="w-full px-6 py-4 text-left flex justify-between items-center font-medium text-[#141E22]"
-            on:click={() => faq.open = !faq.open}
-          >
-            {faq.question}
-            <span class="text-[#66CC33] transform transition" class:rotate-180={faq.open}>▼</span>
-          </button>
-          {#if faq.open}
-            <div class="px-6 pb-4 text-[#141E22]/70">
-              {faq.answer}
+    <div class="space-y-6">
+      {#each pitfalls as pitfall, i}
+        <div class="bg-white rounded-xl p-6 shadow-sm border-l-4 border-red-500">
+          <div class="flex items-start gap-4">
+            <span class="flex-shrink-0 w-10 h-10 bg-red-100 rounded-full flex items-center justify-center text-red-600 font-bold">!</span>
+            <div>
+              <h3 class="font-bold text-[#141E22] text-lg mb-2">{pitfall.title}</h3>
+              <p class="text-[#141E22]/70">{pitfall.description}</p>
             </div>
-          {/if}
+          </div>
         </div>
       {/each}
     </div>
   </div>
 </section>
-
-<script>
-  let faqs = [
-    { question: "[PASTE: FAQ question 1]", answer: "[PASTE: Answer 1]", open: false },
-    { question: "[PASTE: FAQ question 2]", answer: "[PASTE: Answer 2]", open: false },
-    { question: "[PASTE: FAQ question 3]", answer: "[PASTE: Answer 3]", open: false },
-    { question: "What is the compliance deadline?", answer: "[PASTE: Deadline details]", open: false },
-    { question: "What are the penalties for non-compliance?", answer: "[PASTE: Penalty information]", open: false }
-  ];
-</script>

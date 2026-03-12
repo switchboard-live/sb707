@@ -1,44 +1,46 @@
-<section class="py-20 px-6 bg-gradient-to-br from-[#114B5F] to-[#141E22] text-white">
-  <div class="max-w-3xl mx-auto text-center">
-    <h2 class="text-3xl font-bold mb-4">Download the SB707 Compliance Guide</h2>
-    <p class="text-[#EAF8E2] text-lg mb-8">
-      Get the complete guide to California's accessibility requirements for public meetings.
+<section id="partner" class="py-20 px-6 bg-gradient-to-br from-[#114B5F] to-[#141E22] text-white">
+  <div class="max-w-4xl mx-auto text-center">
+    <span class="text-[#66CC33] font-semibold text-sm tracking-wide uppercase">Section Five</span>
+    <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-6">What to Look for In a Tech Partner</h2>
+    
+    <p class="text-[#EAF8E2] text-lg mb-8 max-w-3xl mx-auto">
+      Choosing the right technology is imperative to ensure your city has a system that is reliable, accessible, and future-proof. City Managers need partners who understand compliance requirements, accessibility standards, and the realities of running public meetings with diverse communities.
     </p>
     
-    <form class="max-w-md mx-auto bg-white rounded-xl p-6 text-left">
-      <div class="space-y-4">
-        <div>
-          <label class="block text-sm font-medium text-[#141E22] mb-1">Email *</label>
-          <input type="email" class="w-full px-4 py-2 border border-[#114B5F]/20 rounded-lg text-[#141E22] focus:ring-2 focus:ring-[#66CC33] focus:border-[#66CC33]" placeholder="you@cityname.ca.gov" required>
+    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 mb-8 text-left max-w-3xl mx-auto">
+      <p class="text-[#EAF8E2] mb-6">Our <strong class="text-white">SB 707 Tech Partner Evaluation Guide</strong> outlines the six qualities every City Manager should demand from a vendor:</p>
+      
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="flex items-center gap-3">
+          <span class="text-[#66CC33] text-xl">✓</span>
+          <span class="text-[#EAF8E2]">Compliance-first design</span>
         </div>
-        <div>
-          <label class="block text-sm font-medium text-[#141E22] mb-1">First Name *</label>
-          <input type="text" class="w-full px-4 py-2 border border-[#114B5F]/20 rounded-lg text-[#141E22] focus:ring-2 focus:ring-[#66CC33]" required>
+        <div class="flex items-center gap-3">
+          <span class="text-[#66CC33] text-xl">✓</span>
+          <span class="text-[#EAF8E2]">Accessibility expertise</span>
         </div>
-        <div>
-          <label class="block text-sm font-medium text-[#141E22] mb-1">City Name *</label>
-          <input type="text" class="w-full px-4 py-2 border border-[#114B5F]/20 rounded-lg text-[#141E22] focus:ring-2 focus:ring-[#66CC33]" required>
+        <div class="flex items-center gap-3">
+          <span class="text-[#66CC33] text-xl">✓</span>
+          <span class="text-[#EAF8E2]">Reliability and redundancy</span>
         </div>
-        <div>
-          <label class="block text-sm font-medium text-[#141E22] mb-1">Role</label>
-          <select class="w-full px-4 py-2 border border-[#114B5F]/20 rounded-lg text-[#141E22] focus:ring-2 focus:ring-[#66CC33]">
-            <option>City Manager</option>
-            <option>City Clerk</option>
-            <option>IT Director</option>
-            <option>Other</option>
-          </select>
+        <div class="flex items-center gap-3">
+          <span class="text-[#66CC33] text-xl">✓</span>
+          <span class="text-[#EAF8E2]">Ease of use for staff</span>
         </div>
-        <div class="flex items-start gap-3">
-          <input type="checkbox" id="consent" class="mt-1 text-[#66CC33] rounded focus:ring-[#66CC33]" required>
-          <label for="consent" class="text-sm text-[#141E22]/70">
-            I agree to receive communications about SB707 compliance. Privacy respected.
-          </label>
+        <div class="flex items-center gap-3">
+          <span class="text-[#66CC33] text-xl">✓</span>
+          <span class="text-[#EAF8E2]">Audit and reporting tools</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="text-[#66CC33] text-xl">✓</span>
+          <span class="text-[#EAF8E2]">Community engagement support</span>
         </div>
       </div>
-      
-      <button type="submit" class="w-full bg-[#66CC33] hover:bg-[#379D04] text-[#141E22] font-bold py-3 rounded-lg mt-6 transition">
-        Download Free Guide
-      </button>
-    </form>
+    </div>
+    
+    <button class="bg-[#66CC33] hover:bg-[#379D04] text-[#141E22] font-bold px-8 py-4 rounded-lg text-lg transition inline-flex items-center gap-2">
+      Download the SB 707 Tech Partner Evaluation Guide
+      <span>→</span>
+    </button>
   </div>
 </section>
