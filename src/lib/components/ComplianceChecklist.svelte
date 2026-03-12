@@ -1,29 +1,29 @@
-<section class="py-20 px-6 bg-slate-50">
+<section class="py-20 px-6 bg-[#EAF8E2]">
   <div class="max-w-4xl mx-auto">
-    <h2 class="text-3xl font-bold text-slate-900 mb-4">Compliance Checklist</h2>
-    <p class="text-slate-600 mb-12 text-lg">
+    <h2 class="text-3xl font-bold text-[#141E22] mb-4">Compliance Checklist</h2>
+    <p class="text-[#141E22]/70 mb-12 text-lg">
       Does your city meet these SB707 requirements?
     </p>
     
     <div class="bg-white rounded-xl shadow-sm p-8">
       <div class="space-y-4">
         {#each checklist as item, i}
-          <label class="flex items-start gap-4 p-4 rounded-lg hover:bg-slate-50 cursor-pointer transition">
-            <input type="checkbox" class="w-6 h-6 mt-1 text-blue-600 rounded" bind:checked={item.checked}>
+          <label class="flex items-start gap-4 p-4 rounded-lg hover:bg-[#EAF8E2]/50 cursor-pointer transition">
+            <input type="checkbox" class="w-6 h-6 mt-1 text-[#66CC33] rounded border-[#114B5F]/30 focus:ring-[#66CC33]" bind:checked={item.checked}>
             <div>
-              <p class="font-medium text-slate-900">{item.text}</p>
-              <p class="text-sm text-slate-500 mt-1">{item.description}</p>
+              <p class="font-medium text-[#141E22]">{item.text}</p>
+              <p class="text-sm text-[#141E22]/60 mt-1">{item.description}</p>
             </div>
           </label>
         {/each}
       </div>
       
-      <div class="mt-8 pt-8 border-t border-slate-200">
-        <p class="text-center text-slate-600">
-          <span class="font-semibold text-slate-900">{checkedCount}</span> of <span class="font-semibold">{checklist.length}</span> requirements met
+      <div class="mt-8 pt-8 border-t border-[#EAF8E2]">
+        <p class="text-center text-[#141E22]">
+          <span class="font-semibold text-[#66CC33]">{checkedCount}</span> of <span class="font-semibold">{checklist.length}</span> requirements met
         </p>
         {#if checkedCount < checklist.length}
-          <p class="text-center text-sm text-slate-500 mt-2">
+          <p class="text-center text-sm text-[#141E22]/60 mt-2">
             Download our guide to see how to meet the remaining requirements.
           </p>
         {/if}
