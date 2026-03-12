@@ -1,6 +1,6 @@
 name = "sb707"
-main = ".svelte-kit/cloudflare/_worker.js"
 compatibility_date = "2024-12-01"
 
-[site]
-bucket = ".svelte-kit/cloudflare"
+# Cloudflare Pages (not direct Worker deploy)
+# Build command: npm run build
+# Output directory: .svelte-kit/cloudflare
