@@ -22,9 +22,17 @@ jobs:
       - name: Build
         run: npm run build
       
+      - name: Create Pages Project (if needed)
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages project create sb707 --production-branch=main
+        continue-on-error: true
+
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages project create sb707 --production-branch=main 2>/dev/null || true && pages deploy .svelte-kit/cloudflare --project-name=sb707 --branch=main
+          command: pages deploy .svelte-kit/cloudflare --project-name=sb707 --branch=main
