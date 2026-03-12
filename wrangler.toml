@@ -1,6 +1,0 @@
-name = "sb707"
-main = "./.svelte-kit/cloudflare/_worker.js"
-compatibility_date = "2024-12-01"
-
-# Cloudflare Workers (not Pages)
-# Deploy: wrangler deploy
