@@ -1,7 +1,6 @@
 <section id="why" class="py-20 px-6 bg-white">
   <div class="max-w-4xl mx-auto">
-    <span class="text-[#66CC33] font-semibold text-sm tracking-wide uppercase">Section One</span>
-    <h2 class="text-3xl md:text-4xl font-bold text-[#141E22] mt-2 mb-8">Why SB707 Matters For City Managers</h2>
+    <h2 class="text-3xl md:text-4xl font-bold text-[#141E22] mb-8">Why SB707 Matters For City Managers</h2>
     
     <div class="prose prose-lg text-[#141E22]/80 max-w-none">
       <p class="text-xl leading-relaxed mb-6">

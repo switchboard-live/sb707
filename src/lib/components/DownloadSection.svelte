@@ -1,16 +1,15 @@
-<section id="partner" class="py-20 px-6 bg-gradient-to-br from-[#114B5F] to-[#141E22] text-white">
-  <div class="max-w-4xl mx-auto text-center">
-    <span class="text-[#66CC33] font-semibold text-sm tracking-wide uppercase">Section Five</span>
-    <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-6">What to Look for In a Tech Partner</h2>
+<section id="partner" class="py-20 sm:py-16 lg:py-32 px-4 sm:px-6 bg-linear-to-br from-[#114B5F] to-[#141E22] text-white">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">What to Look for In a Tech Partner</h2>
     
-    <p class="text-[#EAF8E2] text-lg mb-8 max-w-3xl mx-auto">
+    <p class="text-[#EAF8E2] text-base sm:text-lg mb-6 sm:mb-8  text-balance font-stretch-expanded">
       Choosing the right technology is imperative to ensure your city has a system that is reliable, accessible, and future-proof. City Managers need partners who understand compliance requirements, accessibility standards, and the realities of running public meetings with diverse communities.
     </p>
     
-    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 mb-8 text-left max-w-3xl mx-auto">
+    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 mb-8 text-left text-lg">
       <p class="text-[#EAF8E2] mb-6">Our <strong class="text-white">SB 707 Tech Partner Evaluation Guide</strong> outlines the six qualities every City Manager should demand from a vendor:</p>
       
-      <div class="grid md:grid-cols-2 gap-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
         <div class="flex items-center gap-3">
           <span class="text-[#66CC33] text-xl">✓</span>
           <span class="text-[#EAF8E2]">Compliance-first design</span>
@@ -38,7 +37,7 @@
       </div>
     </div>
     
-    <button class="bg-[#66CC33] hover:bg-[#379D04] text-[#141E22] font-bold px-8 py-4 rounded-lg text-lg transition inline-flex items-center gap-2">
+    <button class="bg-[#66CC33] hover:bg-[#379D04] text-[#141E22] font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg transition inline-flex items-center gap-2 w-full sm:w-auto justify-center">
       Download the SB 707 Tech Partner Evaluation Guide
       <span>→</span>
     </button>

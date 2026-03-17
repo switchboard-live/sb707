@@ -1,5 +1,9 @@
 <script>
+  import { Video, Scale, ClosedCaption, Languages, TriangleAlert, Globe, UsersRound } from '@lucide/svelte';
+  
   let selectedRequirement = null;
+  
+  const icons = [Video, Scale, ClosedCaption, Languages, TriangleAlert, Globe, UsersRound];
   
   const requirements = [
     {
@@ -40,18 +44,20 @@
   ];
 </script>
 
-<section id="requirements" class="py-20 px-6 bg-[#EAF8E2]">
-  <div class="max-w-6xl mx-auto">
-    <span class="text-[#66CC33] font-semibold text-sm tracking-wide uppercase">Section Two</span>
-    <h2 class="text-3xl md:text-4xl font-bold text-[#141E22] mt-2 mb-4">The Seven Core Requirements</h2>
-    <p class="text-[#141E22]/70 text-lg mb-12">From a Manager's Lens — Click each block to learn more</p>
+<section id="requirements" class="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-[#EAF8E2]">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-[#141E22] mb-4">The Seven Core Requirements</h2>
+    <p class="text-[#141E22]/70 text-base sm:text-lg mb-8 sm:mb-12">From a Manager's Lens — Click each block to learn more</p>
     
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
       {#each requirements as req, i}
         <button 
           on:click={() => selectedRequirement = req}
-          class="bg-white hover:shadow-lg rounded-xl p-6 text-left transition-all duration-300 border-2 border-transparent hover:border-[#66CC33]"
+          class="bg-white hover:shadow-lg rounded-xl p-6 text-left transition-all duration-300 border-2 border-transparent hover:border-[#66CC33] relative"
         >
+          <div class="p-3 rounded-lg bg-[#66CC33]/20 flex items-center justify-center mb-4 absolute top-1 right-1 opacity-50">
+            <svelte:component this={icons[i]} class="w-10 h-10 text-[#66CC33]" />
+          </div>
           <span class="text-[#66CC33] font-bold text-2xl">0{i + 1}</span>
           <h3 class="font-bold text-[#141E22] mt-3 mb-2">{req.title}</h3>
           <p class="text-sm text-[#141E22]/60">{req.shortDesc}</p>
@@ -64,7 +70,7 @@
   <!-- Modal -->
   {#if selectedRequirement}
     <div class="fixed inset-0 bg-[#141E22]/80 z-50 flex items-center justify-center p-4" on:click={() => selectedRequirement = null}>
-      <div class="bg-white rounded-2xl max-w-2xl w-full p-8" on:click|stopPropagation>
+      <div class="bg-white rounded-2xl max-w-2xl w-full p-6 sm:p-8 mx-4 max-h-[90vh] overflow-y-auto" on:click|stopPropagation>
         <div class="flex justify-between items-start mb-4">
           <h3 class="text-2xl font-bold text-[#141E22]">{selectedRequirement.title}</h3>
           <button on:click={() => selectedRequirement = null} class="text-[#141E22]/50 hover:text-[#141E22] text-2xl">×</button>

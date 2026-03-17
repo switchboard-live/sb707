@@ -8,7 +8,7 @@
   import Footer from '$lib/components/Footer.svelte';
 </script>
 
-<main class="min-h-screen bg-white">
+<main class="min-h-screen bg-white overflow-x-hidden">
   <Hero />
   <ComplianceChecklist />
   <SolutionPreview />

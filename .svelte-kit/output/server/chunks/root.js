@@ -331,7 +331,19 @@ class Batch {
   }
   #process() {
     if (flush_count++ > 1e3) {
+      batches.delete(this);
       infinite_loop_guard();
+    }
+    if (!this.#is_deferred()) {
+      for (const e of this.#dirty_effects) {
+        this.#maybe_dirty_effects.delete(e);
+        set_signal_status(e, DIRTY);
+        this.schedule(e);
+      }
+      for (const e of this.#maybe_dirty_effects) {
+        set_signal_status(e, MAYBE_DIRTY);
+        this.schedule(e);
+      }
     }
     const roots = this.#roots;
     this.#roots = [];
@@ -443,11 +455,11 @@ class Batch {
    * Associate a change to a given source with the current
    * batch, noting its previous and current values
    * @param {Source} source
-   * @param {any} value
+   * @param {any} old_value
    */
-  capture(source2, value) {
-    if (value !== UNINITIALIZED && !this.previous.has(source2)) {
-      this.previous.set(source2, value);
+  capture(source2, old_value) {
+    if (old_value !== UNINITIALIZED && !this.previous.has(source2)) {
+      this.previous.set(source2, old_value);
     }
     if ((source2.f & ERROR_VALUE) === 0) {
       this.current.set(source2, source2.v);
@@ -465,17 +477,6 @@ class Batch {
     try {
       is_processing = true;
       current_batch = this;
-      if (!this.#is_deferred()) {
-        for (const e of this.#dirty_effects) {
-          this.#maybe_dirty_effects.delete(e);
-          set_signal_status(e, DIRTY);
-          this.schedule(e);
-        }
-        for (const e of this.#maybe_dirty_effects) {
-          set_signal_status(e, MAYBE_DIRTY);
-          this.schedule(e);
-        }
-      }
       this.#process();
     } finally {
       flush_count = 0;
@@ -522,6 +523,7 @@ class Batch {
           for (var root2 of batch.#roots) {
             batch.#traverse(root2, [], []);
           }
+          batch.#roots = [];
         }
         batch.deactivate();
       }
@@ -548,6 +550,20 @@ class Batch {
       this.#decrement_queued = false;
       this.flush();
     });
+  }
+  /**
+   * @param {Set<Effect>} dirty_effects
+   * @param {Set<Effect>} maybe_dirty_effects
+   */
+  transfer_effects(dirty_effects, maybe_dirty_effects) {
+    for (const e of dirty_effects) {
+      this.#dirty_effects.add(e);
+    }
+    for (const e of maybe_dirty_effects) {
+      this.#maybe_dirty_effects.add(e);
+    }
+    dirty_effects.clear();
+    maybe_dirty_effects.clear();
   }
   /** @param {(batch: Batch) => void} fn */
   oncommit(fn) {
@@ -961,16 +977,7 @@ class Boundary {
    */
   #resolve(batch) {
     this.is_pending = false;
-    for (const e of this.#dirty_effects) {
-      set_signal_status(e, DIRTY);
-      batch.schedule(e);
-    }
-    for (const e of this.#maybe_dirty_effects) {
-      set_signal_status(e, MAYBE_DIRTY);
-      batch.schedule(e);
-    }
-    this.#dirty_effects.clear();
-    this.#maybe_dirty_effects.clear();
+    batch.transfer_effects(this.#dirty_effects, this.#maybe_dirty_effects);
   }
   /**
    * Defer an effect inside a pending boundary until the boundary resolves
@@ -1209,11 +1216,13 @@ function execute_derived(derived2) {
   return value;
 }
 function update_derived(derived2) {
+  var old_value = derived2.v;
   var value = execute_derived(derived2);
   if (!derived2.equals(value)) {
     derived2.wv = increment_write_version();
     if (!current_batch?.is_fork || derived2.deps === null) {
       derived2.v = value;
+      current_batch?.capture(derived2, old_value);
       if (derived2.deps === null) {
         set_signal_status(derived2, CLEAN);
         return;
@@ -1309,7 +1318,9 @@ function internal_set(source2, value, updated_during_traversal = null) {
       if ((source2.f & DIRTY) !== 0) {
         execute_derived(derived2);
       }
-      update_derived_status(derived2);
+      if (batch_values === null) {
+        update_derived_status(derived2);
+      }
     }
     source2.wv = increment_write_version();
     mark_reactions(source2, DIRTY, updated_during_traversal);

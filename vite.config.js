@@ -3,5 +3,11 @@ import { defineConfig } from 'vite';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  plugins: [tailwindcss(), sveltekit()]
+  plugins: [sveltekit(), tailwindcss()],
+  css: {
+    transformer: 'lightningcss'
+  },
+  ssr: {
+    noExternal: ['@lucide/svelte']
+  }
 });
